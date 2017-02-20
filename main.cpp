@@ -6,20 +6,47 @@
 
 /* 
  * File:   main.cpp
- * Author: Kevin
+ * Author: Kevin Faucher, Alexia Nebrao
  *
  * Created on February 19, 2017, 8:21 PM
  */
 
 #include <cstdlib>
+#include <stdlib.h>
+#include <iostream>
+#include <time.h> 
+
+
 
 using namespace std;
 
 /*
  * 
  */
-int main(int argc, char** argv) {
+int order1(int x, int y);
 
-    return 0;
+int main() {
+    srand(time(NULL));
+    int i;
+    cout << "Hello World!\n";
+    i = (rand()%51)+1;
+    cout << i;
+    
+    
+
 }
+/*
+int order1(int x, int y) {
+    if (x > y) {
+        int tmp = x;
+        x = y;
+        y = tmp;
+        //make it call by pointer
+        //return false;
+    }
+    else{
+        return true;
+    }
+}
+*/
 
