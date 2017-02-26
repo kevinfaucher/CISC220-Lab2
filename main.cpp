@@ -20,36 +20,48 @@
 
 using namespace std;
 
+int smallestElm(int numArray[], size_t length, int &smallest,int &index);
 
 bool swap1(int *x, int *y);
 bool swap2(int &x, int &y);
+
 int main() {
     srand(time(NULL));
     int x;
     int y;
-    cout << "Hello World!\n";
-    x = (rand()%51)+1;
-    y = (rand()%51)+1;
+
+    /*
+     
+    x = (rand() % 51) + 1;
+    y = (rand() % 51) + 1;
     cout << x << endl;
     cout << y << endl;
-    cout <<swap1(&x, &y) << endl;
-    cout <<swap2(x,y)<<endl;
-    
-    
-    
+    cout << swap1(&x, &y) << endl;
+    cout << swap2(x, y) << endl;
+     */
+    int n[] = {-2, -1, -3}; 
+    int s = -1;
+    int index = -1;
+    size_t length = 3;
+
+    cout << smallestElm(n, length, s, index) << +" test" << endl;
+    cout << "smallest element = " << s << endl;
+    return 0;
+
+
 
 }
 //Problem 1
+
 bool swap1(int *x, int *y) {
     if (x > y) {
         int swap;
         swap = *x;
         *x = *y;
-        *y = swap;        
+        *y = swap;
         return false;
         //return false;
-    }
-    else{
+    } else {
         return true;
     }
 }
@@ -57,16 +69,16 @@ bool swap1(int *x, int *y) {
 
 
 //Problem 2
+
 bool swap2(int &x, int &y) {
     if (x > y) {
         int swap;
         swap = x;
         x = y;
-        y = swap;        
+        y = swap;
         return false;
         //return false;
-    }
-    else{
+    } else {
         return true;
     }
 }
@@ -82,5 +94,16 @@ be the index location of the smallest value. Make sure you print these values af
 the function.
  */
 
+int smallestElm(int numArray[], size_t length, int &smallest, int &index) {
+    smallest = numArray[0];
+    for (int i = 1; i < length; i++) {
+        if (numArray[i] < smallest) {
+            smallest = numArray[i];
+            index = i;
+        }
+        
+    }
+    return smallest, index;
+}
 
 
