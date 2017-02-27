@@ -1,15 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   main.cpp
- * Author: Kevin Faucher, Alexia Nebrao
- *
- * Created on February 19, 2017, 8:21 PM
- */
 
 #include <cstdlib>
 #include <stdlib.h>
@@ -20,10 +8,11 @@
 
 using namespace std;
 
-int smallestElm(int numArray[], size_t length, int &smallest,int &index);
+int smallestElm(int numArray[], size_t length, int &smallest, int &index);
 
 bool swap1(int *x, int *y);
 bool swap2(int &x, int &y);
+int leastElement(int a[], int n, int smallest, int index);
 
 int main() {
     srand(time(NULL));
@@ -39,11 +28,13 @@ int main() {
     cout << swap1(&x, &y) << endl;
     cout << swap2(x, y) << endl;
      */
-    int n[] = {-2, -1, -3}; 
+    int n[] = {-2, -1, -3};
     int s = -1;
     int index = -1;
+    int s1 = -1;
+    int index1 = -1;
     size_t length = 3;
-
+    leastElement(n,length,s1,index1);
     cout << smallestElm(n, length, s, index) << +" test" << endl;
     cout << "smallest element = " << s << endl;
     return 0;
@@ -101,9 +92,24 @@ int smallestElm(int numArray[], size_t length, int &smallest, int &index) {
             smallest = numArray[i];
             index = i;
         }
-        
+
     }
     return smallest, index;
 }
 
-
+int leastElement(int a[], int n, int smallest, int index) {
+    if (n <= 0) {
+        return -1;
+    }
+    if (n == 1) {
+        return 0;
+    }
+    int k = 1 + leastElement(a + 1, n - 1, smallest, index);
+    if (a[0] < a[k]) {
+        return 0;
+    } else {
+        smallest = a[k];
+        index = k;
+        return smallest, k;
+    }
+}
