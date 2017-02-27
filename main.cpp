@@ -149,19 +149,19 @@ This is what a function call looks like for this
 */
 bool pali(int a[],int size)
 {
-  int flag=0;
+  int pos=0;
     int i=0;
-    while(flag==0 && i<size){
+    while(pos==0 && i<size){
         if(a[i]==a[size-i-1]){
-            flag=0;
+            pos=0;
             i++;
         }
 
         else{
-            flag=1;
+            pos=1;
         }
     }
-    if(flag==0)
+    if(pos==0)
         return true;
     else
         return false;
