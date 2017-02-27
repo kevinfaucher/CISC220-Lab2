@@ -135,3 +135,34 @@ int leastElement(int a[], int n, int smallest, int index) {
         return smallest, k;
     }
 }
+
+//Problem 9
+/*
+This is what a function call looks like for this
+
+   int n[] = {3, 5, 9, 4, 8, 2, 8, 4, 7, 10}; //just a sample array for testing
+   int length = 5;
+   pali(n+3,length);
+   Index position is n + wherever you want to start
+   length is the remaing size of the array from that point
+   
+*/
+bool pali(int a[],int size)
+{
+  int flag=0;
+    int i=0;
+    while(flag==0 && i<size){
+        if(a[i]==a[size-i-1]){
+            flag=0;
+            i++;
+        }
+
+        else{
+            flag=1;
+        }
+    }
+    if(flag==0)
+        return true;
+    else
+        return false;
+}
