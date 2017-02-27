@@ -12,6 +12,8 @@ int smallestElm(int numArray[], size_t length, int &smallest, int &index);
 
 bool swap1(int *x, int *y);
 bool swap2(int &x, int &y);
+void fillArray(int arr[], int size);
+void printArray(int arr[], int size);
 int leastElement(int a[], int n, int smallest, int index);
 
 int main() {
@@ -20,7 +22,7 @@ int main() {
     int y;
 
     /*
-     
+     //TODO Organize these variables--cause its kinda crazy right now
     x = (rand() % 51) + 1;
     y = (rand() % 51) + 1;
     cout << x << endl;
@@ -29,14 +31,20 @@ int main() {
     cout << swap2(x, y) << endl;
      */
     int n[] = {-2, -1, -3};
-    int s = -1;
-    int index = -1;
+    //int s = -1;
+    //int index = -1;
     int s1 = -1;
     int index1 = -1;
-    size_t length = 3;
-    leastElement(n,length,s1,index1);
-    cout << smallestElm(n, length, s, index) << +" test" << endl;
-    cout << "smallest element = " << s << endl;
+    int length = 3;
+    //size_t length = 3;
+    leastElement(n, length, s1, index1);
+    //cout << smallestElm(n, length, s, index) << +" test" << endl;
+    //cout << "smallest element = " << s << endl;
+     
+    int fArray [20];
+    int size = 20;
+    fillArray(fArray, size);
+
     return 0;
 
 
@@ -74,16 +82,27 @@ bool swap2(int &x, int &y) {
     }
 }
 
-//Problem 5
+//Problem 3
 
-/*
- (6 pts) Write a function that takes as an input parameter an array of integers, a length parameter (an int),
-and two more int parameters that will be modified using pass by reference. When the function is called
-the third and fourth parameters are initialized to -1 (before the function call). The function should locate
-the smallest value in the array, modifying the third parameter to be the smallest value and the fourth to
-be the index location of the smallest value. Make sure you print these values after you’ve returned from
-the function.
- */
+void fillArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        int r = rand() % 100;
+        arr[i] = r;
+    }//for
+}//fillarray
+
+
+//Problem 4
+
+void printArray(int arr[], int size)//Question 6b
+{
+    for (int i = 0; i < size; i++) {
+        cout << arr[size] << endl;
+    }
+}
+
+
+//Problem 5
 
 int smallestElm(int numArray[], size_t length, int &smallest, int &index) {
     smallest = numArray[0];
@@ -96,6 +115,9 @@ int smallestElm(int numArray[], size_t length, int &smallest, int &index) {
     }
     return smallest, index;
 }
+
+//Problem 6
+//Adjust variables to be pass by reference
 
 int leastElement(int a[], int n, int smallest, int index) {
     if (n <= 0) {
