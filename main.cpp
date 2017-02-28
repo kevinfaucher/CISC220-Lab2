@@ -166,3 +166,27 @@ bool pali(int a[],int size)
     else
         return false;
 }
+
+//Problem 10
+/*I'm still playing around with this code.  It's close I think.
+ I need to run some better test cases on it though.
+ * 
+ * bool isPal(int n[], int start, int end);
+
+int main() {
+  int n[] = {-2, -1, -3};
+  int start = 0;
+  int end = 2;
+  
+  cout << isPal(n, start, end) << endl;
+  return 0;
+}
+bool isPal(int n[], int start, int end)
+{
+    if (start >= end)   
+        return true;
+    if (n[start] != n[end])
+        return false;
+    return isPal(n, ++start, --end);   
+}
+ */
