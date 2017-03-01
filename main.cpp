@@ -214,3 +214,29 @@ int pointerArr(int *pointer) {
     return 0;
 
 }
+
+//Problem 14
+/*
+ I'm working on problem 14.  This code is pretty unorthodox, but I originally
+ * programmed it in python because I find it easier to work out that way.  
+ * As of now it can iterate over a string and fill an array with each digit of
+ * the string
+ *
+ * Just need to put it in its own function and implement the random number part
+ * 
+ * int main() {
+  int arr[5];
+	string test = "10010";
+  for(unsigned int i = 0; i<test.length(); i++) {
+    char c = test[i]; 
+    cout << c << endl;
+    arr[int(i)] = atoi(&c);
+
+}
+for (int i = 5 - 1; i >= 0; i--) 
+    cout << arr[i];
+	return 0;
+}
+
+ 
+ */
