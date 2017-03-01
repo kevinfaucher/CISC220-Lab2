@@ -95,8 +95,7 @@ void fillArray(int arr[], int size) {
 
 //Problem 4
 
-void printArray(int arr[], int size)
-{
+void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[size] << endl;
     }
@@ -107,14 +106,15 @@ void printArray(int arr[], int size)
 
 int smallestElm(int numArray[], size_t length, int &smallest, int &index) {
     smallest = numArray[0];
-    for (int i = 1; i < length; i++) {
+    int sizeArr = (int) length;
+    for (int i = 1; i < sizeArr; i++) {
         if (numArray[i] < smallest) {
             smallest = numArray[i];
             index = i;
         }
 
     }
-    return smallest, index;
+    return index, smallest;
 }
 
 //Problem 6
@@ -216,6 +216,7 @@ int pointerArr(int *pointer) {
 }
 
 //Problem 14
+
 /*
  I'm working on problem 14.  This code is pretty unorthodox, but I originally
  * programmed it in python because I find it easier to work out that way.  
@@ -226,7 +227,7 @@ int pointerArr(int *pointer) {
  * 
  * int main() {
   int arr[5];
-	string test = "10010";
+        string test = "10010";
   for(unsigned int i = 0; i<test.length(); i++) {
     char c = test[i]; 
     cout << c << endl;
@@ -235,8 +236,38 @@ int pointerArr(int *pointer) {
 }
 for (int i = 5 - 1; i >= 0; i--) 
     cout << arr[i];
-	return 0;
+        return 0;
 }
+ * 
+ * int fillarr(length){
+  int arr[5];
+        string test = "10010";
+  for(unsigned int i = 0; i<test.length(); i++) {
+    char c = test[i]; 
+    cout << c << endl;
+    arr[int(i)] = atoi(&c);
 
- 
+}
+for (int i = 5 - 1; i >= 0; i--) 
+    cout << arr[i];
+        return 0;
+}
  */
+
+
+//Problem 14, almost there
+int fillarr(int &length) {
+    int arr[length];
+    string test = "10010";
+    length = test.length();
+    int size = (int) length; 
+    for (unsigned int i = 0; i < test.size(); i++) {
+        char c = test[i];
+        cout << c << endl;
+        arr[int(i)] = atoi(&c);
+
+    }
+    for (int i = 5 - 1; i >= 0; i--)
+        cout << arr[i];
+    return 0;
+}
