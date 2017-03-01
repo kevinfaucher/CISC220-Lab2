@@ -15,6 +15,7 @@ bool swap2(int &x, int &y);
 void fillArray(int arr[], int size);
 void printArray(int arr[], int size);
 int leastElement(int a[], int n, int smallest, int index);
+int pointerArr(int *pointer);
 
 int main() {
     srand(time(NULL));
@@ -30,6 +31,7 @@ int main() {
     cout << swap1(&x, &y) << endl;
     cout << swap2(x, y) << endl;
      */
+    /*
     int n[] = {-2, -1, -3};
     //int s = -1;
     //int index = -1;
@@ -44,11 +46,10 @@ int main() {
     int fArray [20];
     int size = 20;
     fillArray(fArray, size);
-
+     */
+    int psize = 0;
+    pointerArr(&psize);
     return 0;
-
-
-
 }
 //Problem 1
 
@@ -137,6 +138,7 @@ int leastElement(int a[], int n, int smallest, int index) {
 }
 
 //Problem 9
+
 /*
 This is what a function call looks like for this
 
@@ -146,22 +148,19 @@ This is what a function call looks like for this
    Index position is n + wherever you want to start
    length is the remaing size of the array from that point
    
-*/
-bool pali(int a[],int size)
-{
-  int pos=0;
-    int i=0;
-    while(pos==0 && i<size){
-        if(a[i]==a[size-i-1]){
-            pos=0;
+ */
+bool pali(int a[], int size) {
+    int pos = 0;
+    int i = 0;
+    while (pos == 0 && i < size) {
+        if (a[i] == a[size - i - 1]) {
+            pos = 0;
             i++;
-        }
-
-        else{
-            pos=1;
+        } else {
+            pos = 1;
         }
     }
-    if(pos==0)
+    if (pos == 0)
         return true;
     else
         return false;
@@ -190,3 +189,23 @@ bool isPal(int n[], int start, int end)
     return isPal(n, ++start, --end);   
 }
  */
+//Problem 13
+
+//I'm mostly sure this is working...mostly
+
+int pointerArr(int *pointer) {
+ 
+    int randNum;
+    *pointer = 8 + (rand() % (int) (33 - 8 + 1));
+    int arr [*pointer];
+    for (int i = 0; i < *pointer; i++) {
+        int r = rand() % 50;
+        arr[i] = r;
+    }//
+ 
+    for (int i = 0; i < *pointer; i++) {
+    	cout << "arr[" << i << "] = " << arr[i] << "\n";
+    }	
+    return 0;
+ 
+}
