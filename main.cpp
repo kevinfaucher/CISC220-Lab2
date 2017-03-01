@@ -47,8 +47,8 @@ int main() {
     int size = 20;
     fillArray(fArray, size);
      */
-    int psize = 0;
-    pointerArr(&psize);
+    int pointed = -1;
+    pointerArr(&pointed);
     return 0;
 }
 //Problem 1
@@ -194,7 +194,7 @@ bool isPal(int n[], int start, int end)
 //I'm mostly sure this is working...mostly
 
 int pointerArr(int *pointer) {
- 
+
     int randNum;
     *pointer = 8 + (rand() % (int) (33 - 8 + 1));
     int arr [*pointer];
@@ -202,10 +202,14 @@ int pointerArr(int *pointer) {
         int r = rand() % 50;
         arr[i] = r;
     }//
- 
+
+    /*
+     this loop here is temporary and used for testing purposes 
+     * Delete it before submitting
+     */
     for (int i = 0; i < *pointer; i++) {
-    	cout << "arr[" << i << "] = " << arr[i] << "\n";
-    }	
+        cout << "arr[" << i << "] = " << arr[i] << "\n";
+    }
     return 0;
- 
+
 }
