@@ -95,7 +95,7 @@ void fillArray(int arr[], int size) {
 
 //Problem 4
 
-void printArray(int arr[], int size)//Question 6b
+void printArray(int arr[], int size)
 {
     for (int i = 0; i < size; i++) {
         cout << arr[size] << endl;
