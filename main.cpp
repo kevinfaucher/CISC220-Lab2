@@ -197,6 +197,7 @@ int pointerArr(int *pointer) {
 
     int randNum;
     *pointer = 8 + (rand() % (int) (33 - 8 + 1));
+    //possible alternative: *pointer = 8 + (rand() % (int) 26);
     int arr [*pointer];
     for (int i = 0; i < *pointer; i++) {
         int r = rand() % 50;
