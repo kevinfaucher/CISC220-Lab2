@@ -224,7 +224,8 @@ int pointerArr(int *pointer) {
 
 
 //Problem 14, almost there
-
+//I think its working
+//There's still some stuff in there that I'm playing with for testing
 int fillarr(int &length) {
     int arr[length];
     string test = "10010"; //test is an example of what a numeric string what look like here
