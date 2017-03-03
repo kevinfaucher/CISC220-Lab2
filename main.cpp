@@ -31,6 +31,7 @@ int findMin(int *arr, int size);
 int pointerArr(int *pointer);
 int fillarr(int &length);
 void matrix(int arr[], int length, int *pointer, int &reference);
+void modArr(int arr[], int *length);
 
 int main() {
     srand(time(NULL));
@@ -82,19 +83,33 @@ int main() {
     //Problem 10
     cout << "\nProblem-------------------------- 10" << endl;
     cout << isPal(n + 3, length) << endl;
-    
+
     //Problem 11
     cout << "\nProblem-------------------------- 11" << endl;
-    int b[]={2,6,3,3,7,7,3,3,6,2};
-    int length1=10;
-    int palint=0;
-    palindref(&b[0],length1,2,palint);
-    cout<<endl<<palint;
-    
+    int b[] = {2, 6, 3, 3, 7, 7, 3, 3, 6, 2};
+    int length1 = 10;
+    int palint = 0;
+    palindref(&b[0], length1, 2, palint);
+    cout << endl << palint;
+
     //Problem 12
+    cout << "\nProblem-------------------------- 12" << endl;
     int x = 0;
     int y = 0;
-    //cout << finalpalin(b, length1, x, y) << endl;
+    finalpalin(b, length1, x, y);
+
+    //Problem 13
+    int pointed = -1;
+    pointerArr(&pointed);
+
+    //Problem 14
+    cout << "\nProblem-------------------------- 14" << endl;
+    cout << "Testing the result array" << endl;
+    int length2 = 0;
+    fillarr(length2);
+
+    //Problem 15
+   
 
 
 }
@@ -252,8 +267,8 @@ bool pali(int a[], int size) {
         }
     }
     if (pos == 0)
-        
-        return  cout << " It is a palindrome " + true;
+
+        return cout << " It is a palindrome " + true;
     else
         return cout << " It is not a palindrome" + false;
 }
@@ -314,12 +329,6 @@ int pointerArr(int *pointer) {
 
 //Problem 14
 
-
-
-//Problem 14, almost there
-//I think its working
-//There's still some stuff in there that I'm playing with for testing
-
 int fillarr(int &length) {
     int arr[length];
     int x = 100 + (std::rand() % (10000 - 100 + 1));
@@ -328,14 +337,30 @@ int fillarr(int &length) {
     int size = (int) length;
     for (unsigned int i = 0; i < String.size(); i++) {
         char c = String[i];
-        cout << c << endl;
         arr[int(i)] = c - '0';
 
     }
+    //printing the array for testing
+    for (int i = length - 1; i >= 0; i--)
+        cout << arr[i];
     return *arr;
 }
 //Problem 15
 
+void modArr(int arr[], int *length) {
+    int count = 0;
+    for (int i = 0; i < &length; i++) {
+        if (arr[i] == (i > 10 and i < 40)) {
+            for (int j = i; j < (&length - 1); j++) {
+                arr[j] = arr[j + 1];
+            }
+            count++;
+            break;
+        }
+        cout << arr << endl;
+        return;
+    }
+}
 
 
 //Problem 17
