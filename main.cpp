@@ -24,6 +24,8 @@ int sum_array(int *arr, int size);
 int min_array(int a[], int length);
 void sortarr(int arr[], int size);
 bool palindref(int arr[], int size, int x, int &fourth);
+bool pali(int a[], int size);
+bool isPal(int a[], int length);
 void finalpalin(int arr[], int size, int &x, int &y);
 int findMin(int *arr, int size);
 int pointerArr(int *pointer);
@@ -32,42 +34,71 @@ void matrix(int arr[], int length, int *pointer, int &reference);
 
 int main() {
     srand(time(NULL));
+
     //Problem 1
     int s1 = 6;
     int s2 = 2;
     swap1(&s1, &s2);
+
     //Problem 2
     swap2(s1, s2);
     //Problem 3
     int size = 20;
     int arrfil[size];
     fillArray(arrfil, size);
+
     //Problem 4
     cout << "\nProblem-------------------------- 4" << endl;
     printArray(arrfil, size);
+
     //Problem 5
     cout << "\nProblem-------------------------- 5" << endl;
     int a1[3] = {2, -2, 3};
     int smallest = 0;
     int index = 0;
     MinFind(arrfil, size, smallest, index);
+
     //Problem 6
     cout << "\nProblem-------------------------- 6" << endl;
     int min = 0;
     int minIndex = 0;
     MinRec(arrfil, size, min, minIndex, 1);
-    
+
     //Problem 7
     sum_array(&arrfil[3], 5);
-    
+
     //Problem 7b
     findMin(arrfil, size);
-    
+
     //Problem 8
     cout << "\nProblem-------------------------- 8" << endl;
     sortarr(arrfil, size);
 
+    //Problem 9
+    int n[] = {3, 5, 9, 4, 8, 2, 8, 4, 7, 10}; //just a sample array 
+    int length = 5;
+    cout << "\nProblem-------------------------- 9" << endl;
+    cout << pali(n + 3, length) << endl;
+    //Problem 10
+    cout << "\nProblem-------------------------- 10" << endl;
+    cout << isPal(n + 3, length) << endl;
+    
+    //Problem 11
+    cout << "\nProblem-------------------------- 11" << endl;
+    int b[]={2,6,3,3,7,7,3,3,6,2};
+    int length1=10;
+    int palint=0;
+    palindref(&b[0],length1,2,palint);
+    cout<<endl<<palint;
+    
+    //Problem 12
+    int x = 0;
+    int y = 0;
+    //cout << finalpalin(b, length1, x, y) << endl;
+
+
 }
+
 //Problem 1
 
 bool swap1(int *x, int *y) {
@@ -209,16 +240,6 @@ void sortarr(int arr[], int size) {
 }
 //Problem 9
 
-/*
-This is what a function call looks like for this
-
-   int n[] = {3, 5, 9, 4, 8, 2, 8, 4, 7, 10}; //just a sample array for testing
-   int length = 5;
-   pali(n+3,length);
-   Index position is n + wherever you want to start
-   length is the remaing size of the array from that point
-   
- */
 bool pali(int a[], int size) {
     int pos = 0;
     int i = 0;
@@ -231,19 +252,20 @@ bool pali(int a[], int size) {
         }
     }
     if (pos == 0)
-        return true;
+        
+        return  cout << " It is a palindrome " + true;
     else
-        return false;
+        return cout << " It is not a palindrome" + false;
 }
 
 //Problem 10
 
 bool isPal(int a[], int length) {
     if (a[0] != a[length - 1]) {
-        return false;
+        return cout << "It is a palindrome " + false;
     }
     if (length == 0) {
-        return true;
+        return cout << "It is a palindrome " + true;
     }
     isPal(&a[1], length - 2);
 
