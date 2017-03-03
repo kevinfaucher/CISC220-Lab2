@@ -17,42 +17,28 @@ void printArray(int arr[], int size);
 int leastElement(int a[], int n, int smallest, int index);
 int pointerArr(int *pointer);
 int fillarr(int &length);
+void matrix(int arr[], int length, int *pointer, int &reference);
 
 int main() {
     srand(time(NULL));
-    int x;
-    int y;
-
-    /*
-     //TODO Organize these variables--cause its kinda crazy right now
-    x = (rand() % 51) + 1;
-    y = (rand() % 51) + 1;
-    cout << x << endl;
-    cout << y << endl;
-    cout << swap1(&x, &y) << endl;
-    cout << swap2(x, y) << endl;
-     */
-    /*
-    int n[] = {-2, -1, -3};
-    //int s = -1;
-    //int index = -1;
-    int s1 = -1;
-    int index1 = -1;
-    int length = 3;
-    //size_t length = 3;
-    leastElement(n, length, s1, index1);
-    //cout << smallestElm(n, length, s, index) << +" test" << endl;
-    //cout << "smallest element = " << s << endl;
-     
-    int fArray [20];
+    //Problem 1
+    int s1 = 6;
+    int s2 = 2;
+    swap1(&s1, &s2);
+    //Problem 2
+    swap2(s1, s2);
+    //Problem 3
     int size = 20;
-    fillArray(fArray, size);
-     */
-    //int pointed = -1;
-    //pointerArr(&pointed);
-    //return 0;
-    int length = 0;
-    cout << fillarr(length) << endl;
+    int arrfil[size];
+    fillArray(arrfil, size);
+    //Problem 4
+    printArray(arrfil, size);
+    //Problem 5
+    int n[] = {-2, -1, -3};
+    int length = 3;
+    int smallest = -1;
+    int index = -1;
+    smallestElm(n, length, smallest, index);
 
 }
 //Problem 1
@@ -90,21 +76,24 @@ bool swap2(int &x, int &y) {
 //Problem 3
 
 void fillArray(int arr[], int size) {
+    arr[size];
     for (int i = 0; i < size; i++) {
-        int r = rand() % 100;
-        arr[i] = r;
-    }//for
+        arr[i] = rand() % 100;
+    }
 }//fillarray
 
 
 //Problem 4
 
 void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++) {
-        cout << arr[size] << endl;
+    for (int i = 0; i < size - 1; i++) {
+        cout << arr[i];
+        cout << ", ";
     }
-}
+    cout << arr[size - 1];
 
+    cout << endl;
+}
 
 //Problem 5
 
@@ -226,12 +215,13 @@ int pointerArr(int *pointer) {
 //Problem 14, almost there
 //I think its working
 //There's still some stuff in there that I'm playing with for testing
+
 int fillarr(int &length) {
     int arr[length];
     string test = "10010"; //test is an example of what a numeric string what look like here
-    int x = 25 + (std::rand() % (10000 - 100 + 1));
+    int x = 100 + (std::rand() % (10000 - 100 + 1));
     double f = 23.43;
-    string String = static_cast<ostringstream*>( &(ostringstream() << x) )->str();
+    string String = static_cast<ostringstream*> (&(ostringstream() << x))->str();
     cout << String << "hello" << endl;
 
     cout << typeid (x).name() << endl; //just used to verify type change
@@ -245,4 +235,42 @@ int fillarr(int &length) {
 
     }
     return *arr;
+}
+//Problem 15
+
+
+
+//Problem 17
+
+void matrix(int arr[], int length, int *pointer, int &reference) {
+    int accu = 0;
+    int accu2 = 0;
+    int splitter = rand() % 20;
+    for (int i = 0; i < length; i++) {
+        if (i != splitter) {
+            accu++;
+        }
+    }
+    int arr1[accu];
+    for (int i = 0; i < length; i++) {
+        if (i != splitter) {
+            arr1[i] = i;
+        }
+
+    }
+
+    for (int i = 0; i < length; i++) {
+        if (i == splitter) {
+            accu2++;
+        }
+    }
+    int arr2[accu2];
+    for (int i = 0; i < length; i++) {
+        if (i == splitter) {
+            arr2[i] = i;
+        }
+        int *array2d[2];
+        array2d[0] = arr1;
+        array2d[1] = arr2;
+    }
 }
