@@ -32,6 +32,7 @@ int pointerArr(int *pointer);
 int fillarr(int &length);
 int matrix(int arr[], int length, int *pointer, int &reference);
 int modArr(int arr[], int *length);
+int some_name16(int arr1[], int arr2[], int size1, int size2, int &length);
 
 int main() {
     srand(time(NULL));
@@ -118,6 +119,8 @@ int main() {
         arr3[i] = r1;
     }
     modArr(arr3, &size3);
+    
+    
 
     //Problem 17
     //void matrix(int arr[], int length, int *accu, int &accu2)
@@ -379,7 +382,13 @@ int modArr(int arr[], int *length) {
     }
 }
 
-
+//Problem 16 incomplete
+int some_name16(int arr1[], int arr2[], int size1, int size2, int &length) {
+	int x = arr1[0];
+	int y = arr2[0];
+	// for
+	return 0;
+}
 //Problem 17
 
 int matrix(int arr[], int length, int *accu, int &accu2) {
