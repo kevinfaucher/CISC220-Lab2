@@ -1,3 +1,9 @@
+/* 
+ * File:   main.cpp
+ * Author: Kevin Faucher, Alexia Nebrao
+ *
+ * Created on February 20, 2017
+ */
 
 #include <cstdlib>
 #include <stdlib.h>
@@ -122,7 +128,7 @@ int MinFind(int numArray[], size_t length, int &smallest, int &index) {
 
 int leastElement(int a[], int size, int &min, int &index, int curind) {
     if (curind >= (size - 1)) {
-        cout << "The smallest value in this array is " << min << " which can be found at index " << index << endl;
+        cout << "The smallest element in the array is " << min << " at index " << index << endl;
     }
     if (a[index] > a[curind]) {
         min = a[curind];
