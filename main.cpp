@@ -30,7 +30,7 @@ void finalpalin(int arr[], int size, int &x, int &y);
 int findMin(int *arr, int size);
 int pointerArr(int *pointer);
 int fillarr(int &length);
-void matrix(int arr[], int length, int *pointer, int &reference);
+int matrix(int arr[], int length, int *pointer, int &reference);
 int modArr(int arr[], int *length);
 
 int main() {
@@ -118,7 +118,16 @@ int main() {
         arr3[i] = r1;
     }
     modArr(arr3, &size3);
-   
+
+    //Problem 17
+    //void matrix(int arr[], int length, int *accu, int &accu2)
+    int b1[] = {2, 6, 3, 3, 7, 7, 3, 3, 6, 2};
+    int length4 = 10;
+    int accu3 = 0;
+    int accu4 = 0;
+    matrix(b1, length4, &accu3, accu4);
+    
+
 
 
 }
@@ -373,16 +382,14 @@ int modArr(int arr[], int *length) {
 
 //Problem 17
 
-void matrix(int arr[], int length, int *pointer, int &reference) {
-    int accu = 0;
-    int accu2 = 0;
+int matrix(int arr[], int length, int *accu, int &accu2) {
     int splitter = rand() % 20;
     for (int i = 0; i < length; i++) {
         if (i != splitter) {
-            accu++;
+            *accu++;
         }
     }
-    int arr1[accu];
+    int arr1[*accu];
     for (int i = 0; i < length; i++) {
         if (i != splitter) {
             arr1[i] = i;
@@ -400,8 +407,7 @@ void matrix(int arr[], int length, int *pointer, int &reference) {
         if (i == splitter) {
             arr2[i] = i;
         }
-        int *array2d[2];
-        array2d[0] = arr1;
-        array2d[1] = arr2;
     }
+    int *array2d[] = {arr1, arr2}; 
+    
 }
