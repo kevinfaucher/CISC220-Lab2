@@ -14,10 +14,12 @@ bool swap1(int *x, int *y);
 bool swap2(int &x, int &y);
 void fillArray(int arr[], int size);
 void printArray(int arr[], int size);
-int leastElement(int a[], int n, int smallest, int index);
+int leastElement(int a[], int size, int &minE, int &index, int cindex);
 int sum_array(int *arr, int size);
 int min_array(int a[], int length);
 void sortarr(int arr[], int size);
+bool palindref(int arr[], int size, int x, int &fourth);
+void finalpalin(int arr[], int size, int &x, int &y);
 int pointerArr(int *pointer);
 int fillarr(int &length);
 void matrix(int arr[], int length, int *pointer, int &reference);
@@ -43,7 +45,7 @@ int main() {
     int index = -1;
     MinFind(n, length, smallest, index);
     //Problem 6
-    int leastElement(n, length, smallest, index);
+
 
 
 }
@@ -117,24 +119,18 @@ int MinFind(int numArray[], size_t length, int &smallest, int &index) {
 }
 
 //Problem 6
-//Adjust variables to be pass by reference
 
-int leastElement(int a[], int n, int smallest, int index) {
-    if (n <= 0) {
-        return -1;
+int leastElement(int a[], int size, int &min, int &index, int curind) {
+    if (curind >= (size - 1)) {
+        cout << "The smallest value in this array is " << min << " which can be found at index " << index << endl;
     }
-    if (n == 1) {
-        return 0;
+    if (a[index] > a[curind]) {
+        min = a[curind];
+        index = curind;
     }
-    int k = 1 + leastElement(a + 1, n - 1, smallest, index);
-    if (a[0] < a[k]) {
-        return 0;
-    } else {
-        smallest = a[k];
-        index = k;
-        return smallest, k;
-    }
+    leastElement(a, size, min, index, curind + 1);
 }
+
 //Problem 7a
 
 int sum_array(int *arr, int size) {
@@ -231,9 +227,34 @@ bool isPal(int a[], int length) {
     isPal(&a[1], length - 2);
 
 }
-//Problem 13
+//Problem 11
 
-//I'm mostly sure this is working...mostly
+bool palindref(int arr[], int size, int x, int &fourth) {
+    int i = 0;
+    while (i <= (size - x)) {
+        if (pali(&arr[i], size)) {
+            fourth = i;
+            return true;
+        }
+        i++;
+    }
+    return false;
+}
+
+//Problem 12
+
+void finalpalin(int arr[], int size, int &x, int &y) {
+    int i = size;
+    while (i > 0) {
+        if (palindref(&arr[0], size, i, x)) {
+            y = i;
+            return;
+        }
+        i--;
+    }
+}
+
+//Problem 13
 
 int pointerArr(int *pointer) {
 
