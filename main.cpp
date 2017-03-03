@@ -8,13 +8,16 @@
 #include <sstream>
 using namespace std;
 
-int smallestElm(int numArray[], size_t length, int &smallest, int &index);
+int MinFind(int numArray[], size_t length, int &smallest, int &index);
 
 bool swap1(int *x, int *y);
 bool swap2(int &x, int &y);
 void fillArray(int arr[], int size);
 void printArray(int arr[], int size);
 int leastElement(int a[], int n, int smallest, int index);
+int sum_array(int *arr, int size);
+int min_array(int a[], int length);
+void sortarr(int arr[], int size);
 int pointerArr(int *pointer);
 int fillarr(int &length);
 void matrix(int arr[], int length, int *pointer, int &reference);
@@ -38,7 +41,10 @@ int main() {
     int length = 3;
     int smallest = -1;
     int index = -1;
-    smallestElm(n, length, smallest, index);
+    MinFind(n, length, smallest, index);
+    //Problem 6
+    int leastElement(n, length, smallest, index);
+
 
 }
 //Problem 1
@@ -97,7 +103,7 @@ void printArray(int arr[], int size) {
 
 //Problem 5
 
-int smallestElm(int numArray[], size_t length, int &smallest, int &index) {
+int MinFind(int numArray[], size_t length, int &smallest, int &index) {
     smallest = numArray[0];
     int sizeArr = (int) length;
     for (int i = 1; i < sizeArr; i++) {
@@ -129,7 +135,61 @@ int leastElement(int a[], int n, int smallest, int index) {
         return smallest, k;
     }
 }
+//Problem 7a
 
+int sum_array(int *arr, int size) {
+    int sum = arr[size - 1];
+    if (size - 1 > 0) {
+        sum = sum + sum_array(&arr[0], size - 1);
+    } // if, end condition.
+    return sum;
+}
+
+int findMin(int *arr, int size) {
+    int y = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < y) {
+            y = arr[i];
+        }
+    }
+    return y;
+}
+//Problem 7b
+
+int min_array(int a[], int length) {
+    int x = rand() % 5 + 3;
+    int minsum = 10000;
+    int index = 0;
+    for (int i = 0; i <= length - x; i++) {
+        //cout<<i<<endl;
+        sum_array(&a[i], x);
+        if (sum_array(&a[i], x) <= minsum) {
+            minsum = sum_array(&a[i], x);
+            index = i;
+        }
+    }
+    cout << index << endl;
+    return index;
+}
+
+//Problem 8
+
+void sortarr(int arr[], int size) {
+    if (size <= 2) {
+        return;
+    }
+    int min = 0;
+    int mindex = 0;
+    MinFind(arr, size, min, mindex);
+    if (min < arr[0]) {
+        arr[mindex] = arr[0];
+        swap2(arr[0], min);
+    }
+    //ArrayPrint(a,size);
+    int *newarr = &arr[1];
+    sortarr(newarr, size - 1);
+
+}
 //Problem 9
 
 /*
@@ -160,28 +220,17 @@ bool pali(int a[], int size) {
 }
 
 //Problem 10
-/*I'm still playing around with this code.  It's close I think.
- I need to run some better test cases on it though.
- * 
- * bool isPal(int n[], int start, int end);
 
-int main() {
-  int n[] = {-2, -1, -3};
-  int start = 0;
-  int end = 2;
-  
-  cout << isPal(n, start, end) << endl;
-  return 0;
-}
-bool isPal(int n[], int start, int end)
-{
-    if (start >= end)   
-        return true;
-    if (n[start] != n[end])
+bool isPal(int a[], int length) {
+    if (a[0] != a[length - 1]) {
         return false;
-    return isPal(n, ++start, --end);   
+    }
+    if (length == 0) {
+        return true;
+    }
+    isPal(&a[1], length - 2);
+
 }
- */
 //Problem 13
 
 //I'm mostly sure this is working...mostly
@@ -218,14 +267,8 @@ int pointerArr(int *pointer) {
 
 int fillarr(int &length) {
     int arr[length];
-    string test = "10010"; //test is an example of what a numeric string what look like here
     int x = 100 + (std::rand() % (10000 - 100 + 1));
-    double f = 23.43;
     string String = static_cast<ostringstream*> (&(ostringstream() << x))->str();
-    cout << String << "hello" << endl;
-
-    cout << typeid (x).name() << endl; //just used to verify type change
-
     length = String.length();
     int size = (int) length;
     for (unsigned int i = 0; i < String.size(); i++) {
