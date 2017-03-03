@@ -10,7 +10,6 @@
 #include <iostream>
 #include <time.h> 
 #include <string>
-#include <typeinfo>
 #include <sstream>
 using namespace std;
 
@@ -26,6 +25,7 @@ int min_array(int a[], int length);
 void sortarr(int arr[], int size);
 bool palindref(int arr[], int size, int x, int &fourth);
 void finalpalin(int arr[], int size, int &x, int &y);
+int findMin(int *arr, int size);
 int pointerArr(int *pointer);
 int fillarr(int &length);
 void matrix(int arr[], int length, int *pointer, int &reference);
@@ -43,21 +43,29 @@ int main() {
     int arrfil[size];
     fillArray(arrfil, size);
     //Problem 4
+    cout << "\nProblem-------------------------- 4" << endl;
     printArray(arrfil, size);
     //Problem 5
+    cout << "\nProblem-------------------------- 5" << endl;
     int a1[3] = {2, -2, 3};
     int smallest = 0;
     int index = 0;
     MinFind(arrfil, size, smallest, index);
     //Problem 6
+    cout << "\nProblem-------------------------- 6" << endl;
     int min = 0;
     int minIndex = 0;
     MinRec(arrfil, size, min, minIndex, 1);
+    
     //Problem 7
     sum_array(&arrfil[3], 5);
-    //Problem 8
     
-
+    //Problem 7b
+    findMin(arrfil, size);
+    
+    //Problem 8
+    cout << "\nProblem-------------------------- 8" << endl;
+    sortarr(arrfil, size);
 
 }
 //Problem 1
