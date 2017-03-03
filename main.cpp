@@ -31,7 +31,7 @@ int findMin(int *arr, int size);
 int pointerArr(int *pointer);
 int fillarr(int &length);
 void matrix(int arr[], int length, int *pointer, int &reference);
-void modArr(int arr[], int *length);
+int modArr(int arr[], int *length);
 
 int main() {
     srand(time(NULL));
@@ -109,6 +109,15 @@ int main() {
     fillarr(length2);
 
     //Problem 15
+    cout << "\nProblem-------------------------- 15" << endl;
+    int size3 = 50;
+    int arr3 [50];
+
+    for (int i = 0; i < size3; i++) {
+        int r1 = rand() % 50;
+        arr3[i] = r1;
+    }
+    modArr(arr3, &size3);
    
 
 
@@ -347,18 +356,17 @@ int fillarr(int &length) {
 }
 //Problem 15
 
-void modArr(int arr[], int *length) {
+int modArr(int arr[], int *length) {
     int count = 0;
-    for (int i = 0; i < &length; i++) {
+    for (int i = 0; i < *length; i++) {
         if (arr[i] == (i > 10 and i < 40)) {
-            for (int j = i; j < (&length - 1); j++) {
+            for (int j = i; j < (*length - 1); j++) {
                 arr[j] = arr[j + 1];
             }
             count++;
             break;
         }
-        cout << arr << endl;
-        return;
+        return *arr;
     }
 }
 
