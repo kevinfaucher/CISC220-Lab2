@@ -20,7 +20,7 @@ bool swap1(int *x, int *y);
 bool swap2(int &x, int &y);
 void fillArray(int arr[], int size);
 void printArray(int arr[], int size);
-int leastElement(int a[], int size, int &minE, int &index, int cindex);
+void MinRec(int a[], int size, int &min, int &index, int curind);
 int sum_array(int *arr, int size);
 int min_array(int a[], int length);
 void sortarr(int arr[], int size);
@@ -45,13 +45,18 @@ int main() {
     //Problem 4
     printArray(arrfil, size);
     //Problem 5
-    int n[] = {-2, -1, -3};
-    int length = 3;
-    int smallest = -1;
-    int index = -1;
-    MinFind(n, length, smallest, index);
+    int a1[3] = {2, -2, 3};
+    int smallest = 0;
+    int index = 0;
+    MinFind(arrfil, size, smallest, index);
     //Problem 6
-
+    int min = 0;
+    int minIndex = 0;
+    MinRec(arrfil, size, min, minIndex, 1);
+    //Problem 7
+    sum_array(&arrfil[3], 5);
+    //Problem 8
+    
 
 
 }
@@ -121,20 +126,22 @@ int MinFind(int numArray[], size_t length, int &smallest, int &index) {
         }
 
     }
+    cout << "The smallest value in this array is " << smallest << " which can be found at index " << index << endl;
     return index, smallest;
 }
 
 //Problem 6
 
-int leastElement(int a[], int size, int &min, int &index, int curind) {
-    if (curind >= (size - 1)) {
-        cout << "The smallest element in the array is " << min << " at index " << index << endl;
+void MinRec(int a[], int size, int &min, int &index, int currentIndex) {
+    if (currentIndex >= (size - 1)) {
+        cout << "The smallest value in this array is " << min << " which can be found at index " << index << endl;
+        return;
     }
-    if (a[index] > a[curind]) {
-        min = a[curind];
-        index = curind;
+    if (a[index] > a[currentIndex]) {
+        min = a[currentIndex];
+        index = currentIndex;
     }
-    leastElement(a, size, min, index, curind + 1);
+    MinRec(a, size, min, index, currentIndex + 1);
 }
 
 //Problem 7a
@@ -266,21 +273,12 @@ int pointerArr(int *pointer) {
 
     int randNum;
     *pointer = 8 + (rand() % (int) (33 - 8 + 1));
-    //possible alternative: *pointer = 8 + (rand() % (int) 26);
     int arr [*pointer];
     for (int i = 0; i < *pointer; i++) {
         int r = rand() % 50;
         arr[i] = r;
-    }//
-
-    /*
-     this loop here is temporary and used for testing purposes 
-     * Delete it before submitting
-     */
-    for (int i = 0; i < *pointer; i++) {
-        cout << "arr[" << i << "] = " << arr[i] << "\n";
     }
-    return 0;
+    return *arr;
 
 }
 
